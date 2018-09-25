@@ -16,7 +16,7 @@ class App extends Component {
   onEnter = (event) =>{
     event.preventDefault()
     this.setState({
-    items: [...this.state.items, this.state.items.push({name: this.state.newAcvityInput, done:false})]
+    items: [...this.state.items, {name: this.state.newAcvityInput, done:false}]
     })
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
 
           <form onSubmit={this.onEnter}>
             <input id="tarefa" onChange={this.onChange} placeholder="Adicione uma Tarefa" />
-            <label for="tarefa">Adicionar Tarefa </label>
+            <label for="tarefa">Adicionar Tarefa</label>
 
             <br/>
             <input className="btn" type="submit"/>
@@ -50,9 +50,7 @@ class App extends Component {
 
           <div>
             <div className="card z-depth-5">
-              <List>
-
-              </List>
+              <List items={this.state.items}/>
             </div>
           </div>
         </div>

@@ -1,17 +1,17 @@
 import React from 'react';
 import ActivityItem from './ActivityItem';
-import ListItem from './ListItems';
+import ListItems from './ListItems';
 
-const List = ({ children }) => (
-    <div className="card-content">
-        <span className="card-title">Minhas Tarefas</span>
-        <ListItem>
-            <ActivityItem task="teste" />
-        </ListItem>
-
-    </div>
-
-);
+const List = ({items}) => {
+    console.log(items)
+    return(
+        <div className="card-content">
+            <span className="card-title">Minhas Tarefas</span>
+            <ListItems>
+                {items.map(item => <ActivityItem task={item.name} />)}
+            </ListItems>
+        </div>)
+}
 
 
 export default List;
